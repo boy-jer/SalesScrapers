@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @contractor.name %>
+</p>
+
+<p>
+  <b>Area:</b>
+  <%=h @contractor.district %>
+</p>
+
+<p>
+  <b>Contractor:</b>
+  <%=h @contractor.contractor_id %>
+</p>
+
+<p>
+  <b>Operations count:</b>
+  <%=h @contractor.operations_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_contractor_path(@contractor) %> |
+<%= link_to 'Back', contractors_path %>

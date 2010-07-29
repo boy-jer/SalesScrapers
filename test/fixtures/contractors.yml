@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  area: MyString
+  contractor_id: 1
+  operations_count: 1
+
+two:
+  name: MyString
+  area: MyString
+  contractor_id: 1
+  operations_count: 1

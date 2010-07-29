@@ -1,0 +1,26 @@
+<h1>Listing wises_scrapes</h1>
+
+<table>
+  <tr>
+    <th>Keyword</th>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Size</th>
+  </tr>
+
+<% @wises_scrapes.each do |wises_scrape| %>
+  <tr>
+    <td><%=h wises_scrape.keyword %></td>
+    <td><%=h wises_scrape.name %></td>
+    <td><%=h wises_scrape.location %></td>
+    <td><%=h wises_scrape.size %></td>
+    <td><%= link_to 'Show', wises_scrape %></td>
+    <td><%= link_to 'Edit', edit_wises_scrape_path(wises_scrape) %></td>
+    <td><%= link_to 'Destroy', wises_scrape, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New wises_scrape', new_wises_scrape_path %>
