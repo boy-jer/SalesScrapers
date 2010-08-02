@@ -24,15 +24,15 @@ I just use SQLite3.
 
 # Nokogiri Scrape and CSV Export
 
-I'm using Nokogiri in Rake tasks to scrape the data. Then export to CSV via other Rake tasks.
+I'm using Nokogiri in Rake tasks to scrape the data, then export to CSV.
 
-CSV Exports are sent to tmp/[whatever].csv
+CSV Exports are sent to tmp/*.csv
 
 ## Wises website
 
 One of the best stocked [NZ business findas](http://www.wises.co.nz/) ;-)
 
-### Scrape
+### Scrape and Export to CSV
 
 Two arguments required:
 
@@ -41,11 +41,10 @@ Two arguments required:
 
 Scrape Command:
 
-    rake wises_scrape:fetch KEYWORD=electricians LOCATION=Wellington
+    rake wises_scrape KEYWORD=electricians LOCATION=Wellington
     
-### Export to CSV
+CSV Output goes to tmp/wises_scrape-[KEYWORD]-[LOCATION].csv
 
-    rake wises_scrape:export_to_csv
 
 ## Rural Contractors Website
 
