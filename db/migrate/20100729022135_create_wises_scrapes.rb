@@ -7,6 +7,7 @@ class CreateWisesScrapes < ActiveRecord::Migration
       t.string :location
       t.string :size
       t.string :finda_url
+      t.string :telephone
 
       t.timestamps
     end

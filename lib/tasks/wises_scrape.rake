@@ -41,10 +41,11 @@ def fetch(keyword,location)
       else
         result_name = result.xpath('div//strong[@class = "fullname"]//text()').to_s.gsub(/&amp;/, '&')
         finda_url = page.xpath("//dd[@id = \"result#{finda_id}Details\"]//a[@class = \"more_info\"]").map { |link| link['href'] }.to_s
+        telephone = page.xpath("//dd[@id = \"result#{finda_id}Details\"]//em//text()").to_s.gsub(/Tel /, '')
         result_size = fetch_employee_size(finda_url)
         
         puts "Inserting: #{result_name} - #{finda_id}"
-        result_new = WisesScrape.new(:finda_id => finda_id, :name => result_name, :keyword => keyword, :location => location, :size => result_size, :finda_url => finda_url)
+        result_new = WisesScrape.new(:finda_id => finda_id, :name => result_name, :keyword => keyword, :location => location, :size => result_size, :finda_url => finda_url, :telephone => telephone)
         result_new.save
       end
     end
@@ -68,9 +69,9 @@ def export(keyword,location)
   outfile = File.open("tmp/wises_scrape-#{keyword.camelize}-#{location.camelize}.csv", 'wb')
 
   CSV::Writer.generate(outfile) do |csvtext|
-    csvtext << ["name", "keyword", "location", "size"]
+    csvtext << ["name", "keyword", "location", "size", "telephone"]
     results.each do |result|
-      csvtext << [result.name, result.keyword, result.location, result.size]
+      csvtext << [result.name, result.keyword, result.location, result.size, result.telephone]
     end
   end
   outfile.close

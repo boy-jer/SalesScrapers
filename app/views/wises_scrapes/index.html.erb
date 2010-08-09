@@ -6,6 +6,7 @@
     <th>Name</th>
     <th>Location</th>
     <th>Size</th>
+    <th>Telephone</th>
   </tr>
 
 <% @wises_scrapes.each do |wises_scrape| %>
@@ -14,6 +15,7 @@
     <td><%=h wises_scrape.name %></td>
     <td><%=h wises_scrape.location %></td>
     <td><%=h wises_scrape.size %></td>
+    <td><%=h wises_scrape.telephone %></td>
     <td><%= link_to 'Show', wises_scrape %></td>
     <td><%= link_to 'Edit', edit_wises_scrape_path(wises_scrape) %></td>
     <td><%= link_to 'Destroy', wises_scrape, :confirm => 'Are you sure?', :method => :delete %></td>
