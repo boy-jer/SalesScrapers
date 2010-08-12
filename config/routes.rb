@@ -1,7 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  map.root :controller => 'wises_scrapes', :action => 'search'
+  
+  map.connect 'search', :controller => 'wises_scrapes', :action => 'search'
+  map.connect 'fetch', :controller => 'wises_scrapes', :action => 'fetch'
+  map.connect 'export', :controller => 'wises_scrapes', :action => 'export'
+  
   map.resources :wises_scrapes
 
   map.resources :contractors
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
 

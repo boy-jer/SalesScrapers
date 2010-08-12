@@ -1,0 +1,13 @@
+<h1>Fetch result</h1>
+
+<table>
+
+<% @wises_scrape.each do |row| %>
+  <tr>
+    <td><%=h row %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Download CSV', :action => 'export', :keyword => params[:keyword], :location => params[:location] %>
+

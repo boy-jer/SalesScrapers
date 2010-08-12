@@ -2,7 +2,6 @@ namespace :contractors do
 
   desc "Fetch All Contractors"  
   task :fetch => :environment do
-    require 'rubygems'  
     require 'nokogiri'  
     require 'open-uri'  
     

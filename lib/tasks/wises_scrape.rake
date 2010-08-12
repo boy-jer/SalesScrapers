@@ -4,7 +4,6 @@ task :wises_scrape => :environment do
   keyword = ENV['KEYWORD'] || abort('Need keyword. E.g: "KEYWORD=electricians"')
   location = ENV['LOCATION'] || abort('Need location. E.g: "LOCATION=Wellington"') 
 
-  require 'rubygems'  
   require 'nokogiri'  
   require 'open-uri'
 
