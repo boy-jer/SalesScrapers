@@ -1,0 +1,4 @@
+rails
+nokogiri
+delayed_job
+fastercsv
