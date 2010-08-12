@@ -96,10 +96,10 @@ class WisesScrapesController < ApplicationController
 
     if raw_results_count == ""
       results_count = 10
-      @wises_scrape = [ "Found 10 or less results" ]
+      @wises_scrape = [ "Found 10 or less results for #{keyword} in #{location}" ]
     else
       results_count = raw_results_count.scan(/of ([0-9]+)\)/)[0][0].to_i
-      @wises_scrape = [ "Found #{results_count} results" ]
+      @wises_scrape = [ "Found #{results_count} results for #{keyword} in #{location}" ]
     end
 
     count = 0
