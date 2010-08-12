@@ -96,11 +96,12 @@ class WisesScrapesController < ApplicationController
 
     if raw_results_count == ""
       results_count = 10
+      @wises_scrape = [ "Found 10 or less results" ]
     else
       results_count = raw_results_count.scan(/of ([0-9]+)\)/)[0][0].to_i
+      @wises_scrape = [ "Found #{results_count} results" ]
     end
 
-    @wises_scrape = [ "Found #{results_count} results" ]
     count = 0
     while count < results_count
       page_url = "#{url}s/#{count.to_s}/"
@@ -111,14 +112,14 @@ class WisesScrapesController < ApplicationController
         result_object = WisesScrape.find_by_finda_id(finda_id)
 
         if result_object
-          @wises_scrape << "Result already added: #{result_object.name}"
+#          @wises_scrape << "Result already added: #{result_object.name}"
         else
           result_name = result.xpath('div//strong[@class = "fullname"]//text()').to_s.gsub(/&amp;/, '&')
           finda_url = page.xpath("//dd[@id = \"result#{finda_id}Details\"]//a[@class = \"more_info\"]").map { |link| link['href'] }.to_s
           telephone = page.xpath("//dd[@id = \"result#{finda_id}Details\"]//em//text()").to_s.gsub(/Tel /, '')
           result_size = fetch_employee_size(finda_url)
 
-          @wises_scrape <<  "Inserting: #{result_name} - #{finda_id}"
+#          @wises_scrape <<  "Inserting: #{result_name} - #{finda_id}"
           result_new = WisesScrape.new(:finda_id => finda_id, :name => result_name, :keyword => keyword, :location => location, :size => result_size, :finda_url => finda_url, :telephone => telephone)
           result_new.save
         end

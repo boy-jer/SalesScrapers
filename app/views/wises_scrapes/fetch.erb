@@ -1,13 +1,4 @@
-<h1>Fetch result</h1>
-
-<table>
-
-<% @wises_scrape.each do |row| %>
-  <tr>
-    <td><%=h row %></td>
-  </tr>
-<% end %>
-</table>
-
-<%= link_to 'Download CSV', :action => 'export', :keyword => params[:keyword], :location => params[:location] %>
-
+<h1>Search result</h1>
+<h3><%= @wises_scrape %></h3>
+<p><%= button_to 'Download CSV', :action => 'export', :keyword => params[:keyword], :location => params[:location] %></p>
+<p><%= button_to 'New search', :action => 'search', :keyword => params[:keyword], :location => params[:location] %></p>
